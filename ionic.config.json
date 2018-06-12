@@ -1,0 +1,7 @@
+{
+  "name": "amplify-ionic-sample-app",
+  "type": "angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
