@@ -19,6 +19,6 @@ import { AmplifyAngularModule, AmplifyService, AmplifyIonicModule } from 'aws-am
     
   ],
   declarations: [AboutPage],
-  providers: [AmplifyService]
+  providers: []
 })
 export class AboutPageModule {}
