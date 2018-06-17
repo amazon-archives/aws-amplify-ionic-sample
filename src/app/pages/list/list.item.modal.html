@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>{{editItem ? 'Edit' : 'Create'}} Item</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list lines="true">
+      <ion-item>
+        <ion-label color="primary">ToDo Title </ion-label>
+        <ion-input placeholder="title" [(ngModel)]="item.title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">ToDo Description </ion-label>
+        <ion-input placeholder="description" [(ngModel)]="item.description"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <ion-button class="save-btn" (click)="save()">Save</ion-button>
+    <ion-button class="dismiss-btn" (click)="cancel()">Cancel</ion-button>
+  </ion-footer>

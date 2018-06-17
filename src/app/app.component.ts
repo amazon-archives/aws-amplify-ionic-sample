@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
-// import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { ServiceWorker } from 'aws-amplify';
+
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
@@ -9,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  serviceWorker:ServiceWorker = new ServiceWorker();
+  registration: any;
   constructor(
     private platform: Platform,
     // private splashScreen: SplashScreen,
@@ -17,9 +20,13 @@ export class AppComponent {
     this.initializeApp();
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
+  async initializeApp() {
+    this.platform.ready().then(async() => {
       this.statusBar.styleDefault();
+       // Register the Service Worker
+       this.registration = await this.serviceWorker.register();
+       // Optionally enable Web Push
+      //  this.subscription = await this.serviceWorker.enablePush(key)
       // this.splashScreen.hide();
     });
   }

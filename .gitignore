@@ -31,3 +31,11 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+#awsmobilejs
+appsync-info.json
+aws-info.json
+project-info.json
+aws-exports.*
+awsmobilejs/*
+~awsmobilejs-*/
