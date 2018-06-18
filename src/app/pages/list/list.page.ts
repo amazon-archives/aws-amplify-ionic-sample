@@ -6,7 +6,7 @@ import { ToDoItem, ToDoList } from '../../classes/item.class';
 
 @Component({
   selector: 'app-list-page',
-  templateUrl: 'list.page.html',
+  templateUrl: 'list.page.html'
 })
 export class ListPage implements OnInit {
 
@@ -25,6 +25,7 @@ export class ListPage implements OnInit {
   ) {
     
     this.amplifyService = amplify;
+    // Listen for changes to the AuthState in order to change item list appropriately
     events.subscribe('data:AuthState', async (data) => {
       if (data.user){
         this.user = await this.amplifyService.auth().currentUserInfo();
@@ -92,19 +93,22 @@ export class ListPage implements OnInit {
       this.getItems()
     })
     .catch((err) => {
-      alert('Error saving list')
+      console.log(`Error saving list: ${err}`)
     })
   }
 
   getItems(){
     if (this.user){
       // Use AWS Amplify to get the list
-        this.amplifyService.api().get('ToDoCRUD', `/ToDo/${this.user.id}`, {}).then((res) => {
+      this.amplifyService.api().get('ToDoCRUD', `/ToDo/${this.user.id}`, {}).then((res) => {
         if (res && res.length > 0){
           this.itemList = res[0];
         } else {
           this.itemList = new ToDoList({userId: this.user.id, items: []});
         }
+      })
+      .catch((err) => {
+        console.log(`Error getting list: ${err}`)
       })
     } else {
       console.log('Cannot get items: no active user')

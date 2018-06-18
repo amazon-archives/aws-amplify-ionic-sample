@@ -13,7 +13,7 @@ import { ListItemModal } from './list.item.modal';
   ],
   declarations: [
     ListPage,
-   ListItemModal
+    ListItemModal
   ],
   entryComponents: [
    ListItemModal
