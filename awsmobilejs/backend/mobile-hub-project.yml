@@ -2,6 +2,38 @@
 features:
   cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
     components:
+      ToDoCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: ToDoCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths:
+          /ToDo: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/ToDo-20180614143847.zip
+            description: 'Handler for calls to resource path : /ToDo/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: PZS00e1I9+6kg0/Piyis31p1baLMihy7wtcIZ6VncJ0=
+            memorySize: '128'
+            modified: '2018-06-14T21:39:16.966+0000'
+            name: ToDo
+            runtime: nodejs6.10
+            timeout: '3'
+            version: P2tiTlQdBeboB1pY_bZPTiEoVBvAePO9
+          '/ToDo/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/ToDo-20180614143847.zip
+            description: 'Handler for calls to resource path : /ToDo/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: PZS00e1I9+6kg0/Piyis31p1baLMihy7wtcIZ6VncJ0=
+            memorySize: '128'
+            modified: '2018-06-14T21:39:16.966+0000'
+            name: ToDo
+            runtime: nodejs6.10
+            timeout: '3'
+            version: JupNaRTvB0Jmr19nLDCEuutje2pwiRj0
       sampleCloudApi: !com.amazonaws.mobilehub.v0.API 
         attributes:
           name: sampleCloudApi
@@ -9,31 +41,31 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /items: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20180602145533.zip
+            codeFilename: uploads/sampleLambda-20180614132158.zip
             description: 'Handler for calls to resource path : /items/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: MyysJbF6XoYQXyEDQLD87DHN7lnbnqU+JfUFSv218A8=
+            hashcode: HlV7ZiJsnsqM7dk8yItNcffL/jDpTpVVYy/Ytcz9sn4=
             memorySize: '128'
-            modified: '2018-06-02T21:56:57.147+0000'
+            modified: '2018-06-14T20:23:48.387+0000'
             name: sampleLambda
             runtime: nodejs6.10
             timeout: '3'
-            version: FN5ycD.6.2t.ADD9mBMYjQTdacYUj.Tj
+            version: kmhtrovz228m0Jln81s0xwToNoavPTKo
           '/items/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20180602145533.zip
+            codeFilename: uploads/sampleLambda-20180614132158.zip
             description: 'Handler for calls to resource path : /items/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: MyysJbF6XoYQXyEDQLD87DHN7lnbnqU+JfUFSv218A8=
+            hashcode: HlV7ZiJsnsqM7dk8yItNcffL/jDpTpVVYy/Ytcz9sn4=
             memorySize: '128'
-            modified: '2018-06-02T21:56:57.147+0000'
+            modified: '2018-06-14T20:23:48.387+0000'
             name: sampleLambda
             runtime: nodejs6.10
             timeout: '3'
-            version: jHVsT8AWVX.ItxeU4e_ze1ucyyqgJnLN
+            version: gDYXT9Ublwt_pqx7t_sAvzocTZ0YOldc
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
@@ -64,9 +96,16 @@ features:
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-AWSMobileTable
             tablePrivacy: public
-  mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
-    components:
-      analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              items: L
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-ToDo
+            tablePrivacy: public
   sign-in: !com.amazonaws.mobilehub.v0.SignIn 
     attributes:
       enabled: true
@@ -85,9 +124,5 @@ features:
             require-numbers: true
             require-symbols: true
             require-upper-case: true
-  user-files: !com.amazonaws.mobilehub.v0.UserFiles 
-    attributes:
-      enabled: true
-      wildcard-cors-policy: true
-name: amplify-ionic-4
+name: amplify-ionic-sample
 region: us-west-2

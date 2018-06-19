@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Events } from '@ionic/angular'
-import { AmplifyService } from 'aws-amplify-angular';
 
 @Component({
   selector: 'app-page-home',
@@ -9,14 +8,20 @@ import { AmplifyService } from 'aws-amplify-angular';
 })
 export class HomePage {
 
-  constructor( public amplifyService: AmplifyService, public events: Events) {
+  authState: any;
 
-      this.amplifyService = amplifyService;
-
-      this.amplifyService.authStateChange$
-      .subscribe(authState => {
-        events.publish('data:AuthState', authState)
-      });
-
+  constructor( public events: Events) {
+    this.authState = {loggedIn: false}
   }
+
+  login() {
+    this.authState.loggedIn = true;
+    this.events.publish('data:AuthState', this.authState)
+  }
+
+  logout() {
+    this.authState.loggedIn = false;
+    this.events.publish('data:AuthState', this.authState)
+  }
+
 }

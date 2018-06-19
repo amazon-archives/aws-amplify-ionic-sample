@@ -1,6 +1,6 @@
 {
 	"SourceDir": "src",
 	"DistributionDir": "www",
-	"BuildCommand": "ionic build",
-	"StartCommand": "ionic serve"
+	"BuildCommand": "ionic serve",
+	"StartCommand": "ng serve"
 }

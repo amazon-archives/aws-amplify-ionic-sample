@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { AmplifyService } from 'aws-amplify-angular';
+import { Events } from '@ionic/angular'
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
-  amplifyService: AmplifyService;
   signedIn: boolean;
 
-  constructor(public amplify: AmplifyService, public router: Router) {
-    this.amplifyService = amplify;
+  constructor(public router: Router, public events: Events) {
+    this.events.subscribe('data:AuthState', async (data) => {
+      if (data.loggedIn){
+        this.signedIn = true;
+      } else {
+        this.signedIn =false
+      }
+    })
   }
   
-  async canActivate() {
-    return await this.amplifyService.auth().currentSession() ? true : false
+  canActivate() {
+    return this.signedIn;
   }
 }
