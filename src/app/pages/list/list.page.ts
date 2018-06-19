@@ -26,7 +26,7 @@ export class ListPage implements OnInit {
       if (data.loggedIn){
         this.getItems();
       } else {
-        this.itemList.items = [];
+        // this.itemList.items = [];
       }
     })
     
@@ -68,19 +68,19 @@ export class ListPage implements OnInit {
   }
 
   delete(i){
-    this.itemList.items.splice(i, 1);
-    this.save(this.itemList);
+    // this.itemList.items.splice(i, 1);
+    // this.save(this.itemList);
 
   }
 
   complete(i){
-    this.itemList.items[i].status = "complete";
-    this.save(this.itemList);
+    // this.itemList.items[i].status = "complete";
+    // this.save(this.itemList);
   }
 
   save(list){
     // Use AWS Amplify to save the list...
-    this.itemList = list;
+    // this.itemList = list;
   }
 
   getItems(){
