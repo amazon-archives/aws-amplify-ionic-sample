@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
-import { ServiceWorker } from 'aws-amplify';
+import { ServiceWorker, Analytics } from 'aws-amplify';
 
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
