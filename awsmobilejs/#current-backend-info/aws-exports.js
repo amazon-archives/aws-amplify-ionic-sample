@@ -17,7 +17,7 @@ const awsmobile = {
     'aws_content_delivery_cloudfront_domain': 'd1ij2xjqixs1ad.cloudfront.net',
     'aws_dynamodb': 'enable',
     'aws_dynamodb_all_tables_region': 'us-west-2',
-    'aws_dynamodb_table_schemas': [{"tableName":"amplifyionicsample-mobilehub-1124756905-AWSMobileTable","attributes":[{"name":"teamId","type":"S"},{"name":"personId","type":"S"},{"name":"email","type":"S"},{"name":"personName","type":"S"},{"name":"phone","type":"S"}],"indexes":[{"indexName":"personName-index","hashKey":"teamId","rangeKey":"personName"}],"region":"us-west-2","hashKey":"teamId","rangeKey":"personId"},{"tableName":"amplifyionicsample-mobilehub-1124756905-ToDo","attributes":[{"name":"userId","type":"S"},{"name":"items","type":"L"}],"indexes":[],"region":"us-west-2","hashKey":"userId"}],
+    'aws_dynamodb_table_schemas': [{"tableName":"amplifyionicsample-mobilehub-1124756905-ToDoItems","attributes":[{"name":"userId","type":"S"},{"name":"items","type":"L"}],"indexes":[],"region":"us-west-2","hashKey":"userId"},{"tableName":"amplifyionicsample-mobilehub-1124756905-AWSMobileTable","attributes":[{"name":"teamId","type":"S"},{"name":"personId","type":"S"},{"name":"email","type":"S"},{"name":"personName","type":"S"},{"name":"phone","type":"S"}],"indexes":[{"indexName":"personName-index","hashKey":"teamId","rangeKey":"personName"}],"region":"us-west-2","hashKey":"teamId","rangeKey":"personId"},{"tableName":"amplifyionicsample-mobilehub-1124756905-ToDo","attributes":[{"name":"userId","type":"S"},{"name":"items","type":"L"}],"indexes":[],"region":"us-west-2","hashKey":"userId"}],
     'aws_project_id': '7fac82ff-6c90-4565-b2cb-17a69b12756d',
     'aws_project_name': 'amplify-ionic-sample',
     'aws_project_region': 'us-west-2',

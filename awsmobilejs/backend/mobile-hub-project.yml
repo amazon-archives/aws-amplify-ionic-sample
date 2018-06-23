@@ -34,6 +34,25 @@ features:
             runtime: nodejs6.10
             timeout: '3'
             version: JupNaRTvB0Jmr19nLDCEuutje2pwiRj0
+      ToDoItemsCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: ToDoItemsCRUD
+          requires-signin: true
+        paths:
+          /ToDoItems: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/ToDoItems-20180622185415.zip
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            name: ToDoItems
+            runtime: nodejs6.10
+          '/ToDoItems/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/ToDoItems-20180622185415.zip
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            name: ToDoItems
+            runtime: nodejs6.10
       sampleCloudApi: !com.amazonaws.mobilehub.v0.API 
         attributes:
           name: sampleCloudApi
@@ -41,7 +60,7 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /items: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20180614132158.zip
+            codeFilename: uploads/sampleLambda-20180622185415.zip
             description: 'Handler for calls to resource path : /items/{proxy+}'
             enableCORS: true
             environment: {}
@@ -54,7 +73,7 @@ features:
             timeout: '3'
             version: kmhtrovz228m0Jln81s0xwToNoavPTKo
           '/items/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20180614132158.zip
+            codeFilename: uploads/sampleLambda-20180622185415.zip
             description: 'Handler for calls to resource path : /items/{proxy+}'
             enableCORS: true
             environment: {}
@@ -76,6 +95,16 @@ features:
     components:
       database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
         tables:
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              items: L
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-ToDoItems
+            tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
               email: S

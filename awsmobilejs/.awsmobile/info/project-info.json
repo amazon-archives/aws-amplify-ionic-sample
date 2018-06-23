@@ -6,14 +6,14 @@
 	"LastNPMInstallTime": "",
 	"FrontendLastBuildTime": "",
 	"LastPublishTime": "",
-	"BackendLastSyncTime": "2018-06-14-14-41-13",
-	"BackendLastBuildTime": "2018-06-14-14-38-53",
-	"BackendLastPushTime": "2018-06-14-14-40-34",
+	"BackendLastSyncTime": "2018-06-22-18-58-11",
+	"BackendLastBuildTime": "2018-06-22-18-54-27",
+	"BackendLastPushTime": "2018-06-22-18-57-36",
 	"BackendProjectID": "7fac82ff-6c90-4565-b2cb-17a69b12756d",
 	"BackendProjectName": "amplify-ionic-sample",
 	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/7fac82ff-6c90-4565-b2cb-17a69b12756d/build",
 	"BackendProjectCreationTime": "2018-06-14T20:16:15.685Z",
-	"BackendProjectLastUpdatedTime": "2018-06-14T21:39:05.048Z",
+	"BackendProjectLastUpdatedTime": "2018-06-23T01:55:16.018Z",
 	"Framework": "angular",
-	"BackendLastSyncToDevTime": "2018-06-14-14-41-22"
+	"BackendLastSyncToDevTime": "2018-06-22-18-58-14"
 }
