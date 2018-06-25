@@ -29,8 +29,6 @@ export class ListPage implements OnInit {
         // this.itemList.items = [];
       }
     })
-    
-
   }
 
   async ngOnInit(){
@@ -68,13 +66,13 @@ export class ListPage implements OnInit {
   }
 
   delete(i){
-    // this.itemList.items.splice(i, 1);
+    this.itemList.items.splice(i, 1);
     // this.save(this.itemList);
 
   }
 
   complete(i){
-    // this.itemList.items[i].status = "complete";
+    this.itemList.items[i].status = "complete";
     // this.save(this.itemList);
   }
 
@@ -102,5 +100,4 @@ export class ListPage implements OnInit {
       ]
     }
   }
-
 }
