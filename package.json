@@ -27,7 +27,7 @@
     "@ionic/schematics-angular": "latest",
     "amazon-cognito-identity-js": "^2.0.2",
     "aws-amplify": "^0.4.6",
-    "aws-amplify-angular": "^0.1.202",
+    "aws-amplify-angular": "^0.1.6",
     "cordova-android": "7.0.0",
     "cordova-ios": "4.5.4",
     "cordova-plugin-device": "^2.0.2",
