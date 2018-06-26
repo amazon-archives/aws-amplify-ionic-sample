@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController, Events } from '@ionic/angular';
+import { AmplifyService } from 'aws-amplify-angular'
 import { ListItemModal } from './list.item.modal';
 import { ToDoItem, ToDoList } from '../../classes/item.class';
 
@@ -9,24 +10,29 @@ import { ToDoItem, ToDoList } from '../../classes/item.class';
 })
 export class ListPage implements OnInit {
 
+  amplifyService: AmplifyService;
   modal: any;
   data: any;
   user: any;
-  itemList: ToDoList;
+  itemList: ToDoList|any;
   signedIn: boolean;
 
   constructor(
     public modalController: ModalController,
+    amplify: AmplifyService,
     events: Events
 
   ) {
     
+    this.amplifyService = amplify;
     // Listen for changes to the AuthState in order to change item list appropriately
     events.subscribe('data:AuthState', async (data) => {
-      if (data.loggedIn){
+      if (data.user){
+        this.user = await this.amplifyService.auth().currentUserInfo();
         this.getItems();
       } else {
-        // this.itemList.items = [];
+        this.itemList = [];
+        this.user = null;
       }
     })
     
@@ -34,6 +40,8 @@ export class ListPage implements OnInit {
   }
 
   async ngOnInit(){
+    // Use AWS Amplify to get user data when creating items
+    this.user = await this.amplifyService.auth().currentUserInfo();
     this.getItems();
   }
 
@@ -68,38 +76,42 @@ export class ListPage implements OnInit {
   }
 
   delete(i){
-    // this.itemList.items.splice(i, 1);
-    // this.save(this.itemList);
+    this.itemList.items.splice(i, 1);
+    this.save(this.itemList);
 
   }
 
   complete(i){
-    // this.itemList.items[i].status = "complete";
-    // this.save(this.itemList);
+    this.itemList.items[i].status = "complete";
+    this.save(this.itemList);
   }
 
   save(list){
     // Use AWS Amplify to save the list...
-    // this.itemList = list;
+    this.amplifyService.api().post('ToDoItemsCRUD', '/ToDoItems', {body: list}).then((i) => {
+      // ... and to get the list after we save it.
+      this.getItems()
+    })
+    .catch((err) => {
+      console.log(`Error saving list: ${err}`)
+    })
   }
 
   getItems(){
-    this.itemList = {
-      userId: 1,
-      items: [
-        new ToDoItem({
-          id: '1',
-          title: 'test item 1',
-          description: 'my test item',
-          status: 'complete'
-        }),
-        new ToDoItem({
-          id: '2',
-          title: 'test item 3',
-          description: 'my other test item',
-          status: 'pending'
-        })
-      ]
+    if (this.user){
+      // Use AWS Amplify to get the list
+      this.amplifyService.api().get('ToDoItemsCRUD', `/ToDoItems/${this.user.id}`, {}).then((res) => {
+        if (res && res.length > 0){
+          this.itemList = res[0];
+        } else {
+          this.itemList = new ToDoList({userId: this.user.id, items: []});
+        }
+      })
+      .catch((err) => {
+        console.log(`Error getting list: ${err}`)
+      })
+    } else {
+      console.log('Cannot get items: no active user')
     }
   }
 

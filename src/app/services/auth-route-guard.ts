@@ -5,7 +5,7 @@ import { Events } from '@ionic/angular'
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
-  signedIn: boolean;
+  signedIn: boolean = false;
 
   constructor(public router: Router, public events: Events) {
     this.events.subscribe('data:AuthState', async (data) => {
