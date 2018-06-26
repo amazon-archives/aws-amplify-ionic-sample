@@ -2,38 +2,38 @@
 features: 
   cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic
     components: 
-      ToDoCRUD: !com.amazonaws.mobilehub.v0.API
+      ToDoItemsCRUD: !com.amazonaws.mobilehub.v0.API
         attributes: 
-          name: ToDoCRUD
+          name: ToDoItemsCRUD
           requires-signin: true
           sdk-generation-stage-name: Development
         paths: 
-          /ToDo: !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/ToDo-20180614143847.zip
-            description: "Handler for calls to resource path : /ToDo/{proxy+}"
+          /ToDoItems: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/ToDoItems-20180625165130.zip
+            description: "Handler for calls to resource path : /ToDoItems/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: PZS00e1I9+6kg0/Piyis31p1baLMihy7wtcIZ6VncJ0=
+            hashcode: 4/fx37p3lnIuS8Bof/utkyQNz9WgZJ4tNSY/5oFlS+8=
             memorySize: "128"
-            modified: "2018-06-14T21:39:16.966+0000"
-            name: ToDo
+            modified: "2018-06-25T23:53:26.863+0000"
+            name: ToDoItems
             runtime: nodejs6.10
             timeout: "3"
-            version: P2tiTlQdBeboB1pY_bZPTiEoVBvAePO9
-          "/ToDo/{proxy+}": !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/ToDo-20180614143847.zip
-            description: "Handler for calls to resource path : /ToDo/{proxy+}"
+            version: wbZgZw_EAqeKGuQkZ7NgwbGYgpz1V3bO
+          "/ToDoItems/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/ToDoItems-20180625165130.zip
+            description: "Handler for calls to resource path : /ToDoItems/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: PZS00e1I9+6kg0/Piyis31p1baLMihy7wtcIZ6VncJ0=
+            hashcode: 4/fx37p3lnIuS8Bof/utkyQNz9WgZJ4tNSY/5oFlS+8=
             memorySize: "128"
-            modified: "2018-06-14T21:39:16.966+0000"
-            name: ToDo
+            modified: "2018-06-25T23:53:26.863+0000"
+            name: ToDoItems
             runtime: nodejs6.10
             timeout: "3"
-            version: JupNaRTvB0Jmr19nLDCEuutje2pwiRj0
+            version: 5T0.FNhK5_TReY_YB7S.sIN6Fb3fi_my
       sampleCloudApi: !com.amazonaws.mobilehub.v0.API
         attributes: 
           name: sampleCloudApi
@@ -41,31 +41,31 @@ features:
           sdk-generation-stage-name: Development
         paths: 
           /items: !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/sampleLambda-20180614132158.zip
+            codeFilename: uploads/sampleLambda-20180625165130.zip
             description: "Handler for calls to resource path : /items/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: HlV7ZiJsnsqM7dk8yItNcffL/jDpTpVVYy/Ytcz9sn4=
+            hashcode: kP9oqM186UyP5lLL5N3mYKPcAJqKsqOmZinBTlXN3NY=
             memorySize: "128"
-            modified: "2018-06-14T20:23:48.387+0000"
+            modified: "2018-06-25T23:53:27.096+0000"
             name: sampleLambda
             runtime: nodejs6.10
             timeout: "3"
-            version: kmhtrovz228m0Jln81s0xwToNoavPTKo
+            version: wWH1vO1aCIMSO0dDSiaZj4DXrrRAOmpJ
           "/items/{proxy+}": !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/sampleLambda-20180614132158.zip
+            codeFilename: uploads/sampleLambda-20180625165130.zip
             description: "Handler for calls to resource path : /items/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: HlV7ZiJsnsqM7dk8yItNcffL/jDpTpVVYy/Ytcz9sn4=
+            hashcode: kP9oqM186UyP5lLL5N3mYKPcAJqKsqOmZinBTlXN3NY=
             memorySize: "128"
-            modified: "2018-06-14T20:23:48.387+0000"
+            modified: "2018-06-25T23:53:27.096+0000"
             name: sampleLambda
             runtime: nodejs6.10
             timeout: "3"
-            version: gDYXT9Ublwt_pqx7t_sAvzocTZ0YOldc
+            version: vUwk0hp5ti3_PhDV764LZzKwgi8qTJ5T
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery
     attributes: 
       enabled: true
@@ -104,8 +104,11 @@ features:
             hashKeyType: S
             rangeKeyName: ""
             rangeKeyType: ""
-            tableName: ___DYNAMIC_PREFIX___-ToDo
+            tableName: ___DYNAMIC_PREFIX___-ToDoItems
             tablePrivacy: public
+  mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint
+    components: 
+      analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
   sign-in: !com.amazonaws.mobilehub.v0.SignIn
     attributes: 
       enabled: true
@@ -124,5 +127,5 @@ features:
             require-numbers: true
             require-symbols: true
             require-upper-case: true
-name: amplify-ionic-sample
+name: sample-conf
 region: us-west-2
