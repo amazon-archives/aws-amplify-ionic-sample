@@ -1,4 +1,4 @@
-# AWS-Amplify-Ionic-Sample
+# AWS Amplify Ionic Sample
 
 This is a sample application demonstrating the use of the AWS Amplify library with Ionic 4.  
 
