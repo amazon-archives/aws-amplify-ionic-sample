@@ -6,7 +6,8 @@ import { ToDoItem, ToDoList } from '../../classes/item.class';
 
 @Component({
   selector: 'app-list-page',
-  templateUrl: 'list.page.html'
+  templateUrl: 'list.page.html',
+  styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
 
@@ -47,7 +48,7 @@ export class ListPage implements OnInit {
 
   async modify(item, i) {
     let props = {
-      itemList: this.itemList,
+      itemList: this.itemList || new ToDoList({userId: this.user.id}),
       /*
         We pass in an item paramenter only when the user clicks on an existing item
         and therefore populate an editItem value so that our modal knows this is an edit operation.
