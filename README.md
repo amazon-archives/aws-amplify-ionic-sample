@@ -1,8 +1,6 @@
 # AWS Amplify Ionic Sample
 
-This is a sample application demonstrating the use of the AWS Amplify library with Ionic 4.  
-
-**Please submit issues to the [aws-amplify](https://github.com/aws-amplify/amplify-js/issues) repository.**
+This is a sample application has been archived in favor of [Amplify JS Samples](https://github.com/aws-amplify/amplify-js-samples). While the archived repository will still work, please go +1 this [feature request for Ionic sample](https://github.com/aws-amplify/amplify-js-samples/issues/13) if you are looking to use this sample.
 
 ## Getting Started
 
